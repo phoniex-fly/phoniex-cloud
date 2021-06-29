@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: phoenix-server-gateway
+  cloud:
+    config: #config客户端的配置
+      name: server-gateway #在git上的存放目录
+      profile: dev
+      label: master #分支
+      discovery:
+        enabled: true
+        service-id: phoenix-server-config  #配置中心的实例ID
+eureka:
+  client: #一般在client端编写
+    service-url:
+      defaultZone: ${EUREKA_SERVER:http://admin:admin@localhost:8761/eureka} #单机，带密码
+    #      defaultZone: ${EUREKA_SERVER_URL:http://peer1:8761/eureka,http://peer2:8762/eureka,http://peer2:8763/eureka} #集群
+  instance: #server端、client端都可以写
+    hostname: ${HOST:localhost}
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+    prefer-ip-address: ${PREFER_IP_ADDRESS:true} #显示IP地址
+    lease-renewal-interval-in-seconds: ${LEASE_RENEWAL_INTERVAL_IN-SECONDS:30} #客户端发送心跳的时间
+    lease-expiration-duration-in-seconds: ${LEASE_EXPIRATION_DURATION_IN_SECONDS:90} #实例的自我剔除时间，不让请求和流量过来

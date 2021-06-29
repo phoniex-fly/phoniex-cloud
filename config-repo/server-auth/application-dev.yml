@@ -1,0 +1,16 @@
+server:
+  port: ${PORT:9999}
+spring:
+  rabbitmq: #需要通过队列刷新配置
+    host: 127.0.0.1
+    username: admin
+    password: admin
+    virtual-host: v-phoenix
+    port: 5672
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'  #暴露健康检查端点，让服务可被监控
+
+

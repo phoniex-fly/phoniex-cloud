@@ -1,0 +1,18 @@
+server:
+  port: ${PORT:10086}
+spring:
+  application:
+    name: phoenix-server-admin
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER:http://admin:admin@localhost:8761/eureka}
+  instance: #都可以写
+    hostname: ${HOST:localhost}
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+    prefer-ip-address: ${PREFER_IP_ADDRESS:true} #显示IP地址
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

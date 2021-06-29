@@ -1,0 +1,9 @@
+.idea
+/phoenix-common/common-core/target/
+/phoenix-common/common-feign/target/
+/phoenix-common/common-redis/target/
+/phoenix-server/server-admin/target/
+/phoenix-server/server-auth/target/
+/phoenix-server/server-config/target/
+/phoenix-server/server-eureka/target/
+/phoenix-server/server-gateway/target/
