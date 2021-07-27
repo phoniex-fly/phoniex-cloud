@@ -1,9 +1,9 @@
 spring:
   application:
-    name: phoenix-serivce-system
+    name: phoenix-service-system
   cloud:
     config: #config客户端的配置
-      name: serivce-system #在git上的存放目录
+      name: service-system #在git上的存放目录
       profile: dev
       label: master #分支
       discovery:

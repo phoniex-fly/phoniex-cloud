@@ -15,6 +15,7 @@
     <modules>
         <module>service-system</module>
         <module>service-demo</module>
+        <module>service-message</module>
     </modules>
 
     <description>

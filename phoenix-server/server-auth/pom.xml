@@ -16,37 +16,40 @@
     </description>
 
     <dependencies>
-        <!--web-->
+        <!--web
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--oauth2-->
+        &lt;!&ndash;oauth2&ndash;&gt;
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
         </dependency>
-        <!--健康检查-->
+        &lt;!&ndash;健康检查&ndash;&gt;
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!--配置刷新-->
+        &lt;!&ndash;配置刷新&ndash;&gt;
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
-        <!--config-client-->
+        &lt;!&ndash;config-client&ndash;&gt;
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
-        <!--eureka-client-->
+        &lt;!&ndash;eureka-client&ndash;&gt;
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>-->
+        <dependency>
+            <groupId>org.phoenix</groupId>
+            <artifactId>common-core</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.phoenix</groupId>
             <artifactId>common-feign</artifactId>

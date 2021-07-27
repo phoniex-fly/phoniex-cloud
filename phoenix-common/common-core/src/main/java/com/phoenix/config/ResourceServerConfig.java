@@ -37,13 +37,14 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        ClassPathResource resource = new ClassPathResource("csii_pub.jks");
+        ClassPathResource resource = new ClassPathResource("publicKey.txt");
         String publicKey = null;
         try {
             publicKey = FileUtil.readString(resource.getFile(), Charset.defaultCharset());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        converter.setSigningKey(publicKey);
         converter.setVerifierKey(publicKey);
         return converter;
     }
@@ -77,7 +78,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                         "/webjars/**",
                         "/swagger-ui/**",
                         "/druid/**",
-                        "/actuator/**")
+                        "/actuator/**",
+                        "/oauth/**")
                 .permitAll()
                 .antMatchers("/**").authenticated()
                 .and()

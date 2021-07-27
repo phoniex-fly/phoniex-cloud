@@ -24,7 +24,7 @@ public class IpFilter implements GlobalFilter, Ordered {
         //白名单IP放行
         String hostName = exchange.getRequest().getHeaders().getHost().getHostName();
         if (ipWriteList.getWriteList().contains(hostName)) {
-            chain.filter(exchange);
+            return chain.filter(exchange);
         }
         //请求拦截 返回错误信息
         return GatewayError.forbidonIP(exchange);

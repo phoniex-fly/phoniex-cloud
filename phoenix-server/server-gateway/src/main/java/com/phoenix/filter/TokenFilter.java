@@ -14,7 +14,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.net.URI;
 import java.util.List;
 
 /**
@@ -31,8 +30,8 @@ public class TokenFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         //放行的路径直接放行
-        URI uri = exchange.getRequest().getURI();
-        if (pathPassList.getPass().contains(uri)) {
+        String path = exchange.getRequest().getURI().getPath();
+        if (pathPassList.getPass().contains(path)) {
             return chain.filter(exchange);
         }
         //非放行的路径，获取请求头中的token
@@ -49,7 +48,6 @@ public class TokenFilter implements GlobalFilter, Ordered {
                     return chain.filter(exchange);
                 }
             }
-
         }
         //请求被拦截，返回错误信息
         return GatewayError.unauthorized(exchange);
